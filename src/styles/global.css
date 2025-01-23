@@ -1,1 +1,39 @@
+:root {
+    --starbucks: #3b2f27;
+    --starbucks-soft: #7d7268;
+    --starbucks-moca: #db7124;
+  }
+
 @import "tailwindcss";
+
+@layer components {
+
+    .container {
+        @apply mx-auto lg:px-8 px-6;
+    }
+}
+
+body {
+    background: #ffefe2;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.text-starbucks {
+    color: var(--starbucks);
+}
+
+.text-starbucks-soft {
+    color: var(--starbucks-soft);
+}
+
+.text-starbucks a{
+    color: var(--starbucks);
+    transition: color 500ms ease-in-out;
+}
+
+.text-starbucks a:hover{
+    color: var(--starbucks-moca);
+    transition-duration: 500ms;
+}

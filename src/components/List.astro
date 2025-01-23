@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+import FrappuccinoUnicorn from "../images/frapuccinopink.png";
+import FrappuccinoRedVevelt from "../images/frapuccinored.png";
+import FrapuccinoOreo from "../images/frapuccinobrown.png";
+
+export interface Props {
+  items: { id: number; name: string; image: string }[];
+}
+
+const frapuccinoItems = [
+  { id: 1, name: "Frappuccino Red Velvet", image: FrappuccinoRedVevelt },
+  { id: 2, name: "Frapuccino Oreo", image: FrapuccinoOreo },
+  { id: 3, name: "Frappuccino Unicorn", image: FrappuccinoUnicorn },
+];
+
+
+---
+
+<section class="">
+  <div class="container">
+    <div class="bg-red-900">
+      {
+        frapuccinoItems.map((frapuccinoItem) => (
+          <div class="" key={frapuccinoItem.id} class="">
+            <Image alt={frapuccinoItem.name} src={frapuccinoItem.image} class="h-33 w-22" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

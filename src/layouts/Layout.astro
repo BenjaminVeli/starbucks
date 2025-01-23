@@ -1,22 +1,47 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+}
+
+const {
+  title = "Clone Starbucks",
+  description = "Clone Starbucks website using Astro",
+  url = "https://clone-starbucks-bay.vercel.app/",
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- OG Metatags -->
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={description} />
+    <meta name="og:url" content={url} />
+
+    <title>{title}</title>
+
+    <!-- Preload para la fuente Poppins -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

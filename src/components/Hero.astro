@@ -1,5 +1,42 @@
 ---
+import { Image } from "astro:assets";
 
+import FrapuccinoCup from "../images/cup.png";
+import ArrowCircle from "../assets/arrow-circle.svg";
 ---
 
-<div class="text-red-500">hola mundo</div>
+<section id="hero" class="min-h-[60dvh] flex items-center">
+  <div class="container">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-2 items-center jutify-center"
+    >
+      <div class="">
+        <h1 class="text-starbucks text-6xl font-bold">
+          Mindful Drinks for Calm
+        </h1>
+        <p class="max-w-[420px] text-starbucks-soft mt-0 mb-0">
+          A lower-calorie version of the clasic latte. Espresso and lactose-free
+          milk come together in perfect harmony to bring lightness to your
+          drink.
+        </p>
+        <div class="">
+          <p>$3.40</p>
+          <div class="w-full max-w-[220px]">
+            <div class="relative flex items-center">
+              <input
+                class="w-full bg-transparent placeholder:text-starbucks text-starbucks text-base border border-slate-200 rounded-xl pl-3 pr-10 py-2 transition duration-300 ease focus:outline-none focus:border-stone-700 hover:border-slate-300 shadow-sm focus:shadow"
+                placeholder="Buy Now"
+              />
+              <ArrowCircle size={50} class="absolute top-2.5 left-2.5" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-red-900">
+        <Image src={FrapuccinoCup} alt="Starbucks Cup"/>
+      </div>
+      <div class="bg-red-900">s</div>
+    </div>
+  </div>
+</section>
+

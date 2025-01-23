@@ -1,0 +1,67 @@
+---
+import Search from "../assets/search.svg";
+
+export interface Props {
+  items: { id: number; name: string; ref: string }[];
+}
+
+const navItems = [
+  { id: 1, name: "Menu", ref: "#" },
+  { id: 2, name: "Rewards", ref: "#" },
+  { id: 3, name: "Blog", ref: "#" },
+  { id: 4, name: "Delivery", ref: "#" },
+];
+---
+
+<header class="top-0 left-0 w-full z-50 bg-transparent">
+  <div class="container">
+    <div class="flex justify-between lg:relative items-center h-16 lg:h-18">
+      <a
+        href="/"
+        title="Go to Starbucks homepage"
+        aria-label="Starbucks homepage"
+        class="flex items-center space-x-4"
+      >
+        <img
+          src="/Vector.png"
+          alt="Starbucks logo"
+          class="lg:h-14 lg:w-14 h-11 w-11"
+        />
+        <span class="font-extrabold uppercase text-starbucks">Starbucks</span>
+      </a>
+
+      <nav class="lg:flex hidden">
+        <ul
+          class="flex flex-col items-center gap-6 lg:flex-row lg:gap-11 relative z-20 w-full"
+        >
+          {
+            navItems.map((navItem) => (
+              <li
+                class="text-starbucks font-medium text-base w-full py-2 px-4"
+                key={navItem.id}
+              >
+                <a href={navItem.ref} class="block w-full">
+                  {navItem.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="lg:flex hidden items-center gap-6">
+        <div class="w-full max-w-sm min-w-[150px]">
+          <div class="relative flex items-center">
+            <Search size={16} class="absolute top-2.5 left-2.5" />
+            <input
+              class="w-full bg-transparent placeholder:text-starbucks text-starbucks text-sm border border-slate-200 rounded-xl pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-stone-700 hover:border-slate-300 shadow-sm focus:shadow"
+              placeholder="Search"
+            />
+          </div>
+        </div>
+
+        <img src="/bag.avif" class="w-12 h-12" />
+      </div>
+    </div>
+  </div>
+</header>
