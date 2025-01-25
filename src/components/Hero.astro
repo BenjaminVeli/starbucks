@@ -2,41 +2,115 @@
 import { Image } from "astro:assets";
 
 import FrapuccinoCup from "../images/cup.png";
+
+import Coffe from "../images/coffe.png";
+import Cacao from "../images/cacao.png";
+import Starbucks from "../images/starbucks.png";
+import Sugar from "../images/sugar.png";
+
 import ArrowCircle from "../assets/arrow-circle.svg";
+
+export interface Props {
+  items: {
+    id: number;
+    title: string;
+    information: string;
+    image: string;
+  }[];
+}
+
+const characteristic = [
+  {
+    id: 1,
+    title: "Sugar free",
+    information: "Now without added sugar",
+    image: Coffe,
+  },
+  {
+    id: 2,
+    title: "100% Premium",
+    information: "Skinny Latte using 100% premium Arabica beans",
+    image: Sugar,
+  },
+  {
+    id: 3,
+    title: "Chilled Classics",
+    information: "New Skinny Latte Complements Starbucks Chilled Coffe Line",
+    image: Starbucks,
+  },
+];
 ---
 
-<section id="hero" class="min-h-[60dvh] flex items-center">
+<section id="hero" class="min-h-[90dvh] flex items-center">
   <div class="container">
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-2 items-center jutify-center"
-    >
-      <div class="">
-        <h1 class="text-starbucks text-6xl font-bold">
+    <div class="grid grid-cols-5 items-start jutify-center gap-y-28">
+      <div class="col-span-5 xl:col-span-2 text-center xl:text-left mt-5 mb-10 xl:mb-0">
+        <h1 class="text-starbucks text-4xl md:text-5xl xl:text-6xl font-bold">
           Mindful Drinks for Calm
         </h1>
-        <p class="max-w-[420px] text-starbucks-soft mt-0 mb-0">
+        <p class="2xl:max-w-[420px] max-w-[700px] text-starbucksSoft mt-6 mb-6 mx-auto 2xl:mx-0">
           A lower-calorie version of the clasic latte. Espresso and lactose-free
           milk come together in perfect harmony to bring lightness to your
           drink.
         </p>
-        <div class="">
-          <p>$3.40</p>
+        <div class="flex items-center gap-4 justify-center xl:justify-start">
+          <p class="text-starbucks md:text-5xl text-3xl font-medium">$3.40</p>
           <div class="w-full max-w-[220px]">
             <div class="relative flex items-center">
               <input
-                class="w-full bg-transparent placeholder:text-starbucks text-starbucks text-base border border-slate-200 rounded-xl pl-3 pr-10 py-2 transition duration-300 ease focus:outline-none focus:border-stone-700 hover:border-slate-300 shadow-sm focus:shadow"
+                class="w-full bg-transparent md:text-xl text-base placeholder:text-starbucks text-starbucks border border-slate-200 rounded-xl pl-3 pr-10 py-4 transition duration-300 ease focus:outline-none focus:border-starbucks hover:border-slate-300 shadow-md focus:shadow"
                 placeholder="Buy Now"
               />
-              <ArrowCircle size={50} class="absolute top-2.5 left-2.5" />
+              <ArrowCircle size={50} class="absolute left-40 cursor-pointer hover:scale-125 duration-500 transition-all" />
             </div>
           </div>
         </div>
       </div>
-      <div class="bg-red-900">
-        <Image src={FrapuccinoCup} alt="Starbucks Cup"/>
+
+      <div class="col-span-5 lg:col-span-3 xl:col-span-2 flex items-center justify-center">
+        <div class="bg-starbucksGreen rounded-full flex items-center justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] 2xl:w-[500px] 2xl:h-[500px] relative">
+          <Image src={FrapuccinoCup} alt="Starbucks Cup" class="w-[150px] h-[300px] md:w-[200px] md:h-[400px] 2xl:w-[285px] 2xl:h-[500px] relative z-20 -top-5 md:-top-10 frapuccino-img" />
+          <div class="w-[310px] md:w-[320px] 2xl:w-[390px] px-7 md:px-8 lg:px-2 2xl:px-4 lg:pl-14  2xl:pl-16 -left-20 md:-left-6  bg-white rounded-2xl pt-24 pb-5 absolute z-10 -bottom-6 transform translate-x-1/4 translate-y-1/4">
+            <h2 class="text-black font-semibold uppercase text-2xl 2xl:text-3xl">Holiday Gift Guide</h2>
+            <p class="text-black text-xs">
+              Give the gift of coffee this holiday season! We put together a great list of options for the coffee lover in your life.
+            </p>
+          </div>
+          <Image src={Cacao} alt="Cacao img" class="w-[80px] h-[60px] sm:w-[100px] sm:h-[80px] md:w-[120px] md:h-[100px] absolute bottom-20 right-0 transform translate-x-1/4 translate-y-1/4 z-30" />
+        </div>
       </div>
-      <div class="bg-red-900">s</div>
+
+      
+
+      <!-- Col invisible -->
+      <div class="col-span-1 lg:hidden"></div>
+
+      <div class="col-span-3 lg:col-span-2 xl:col-span-1 flex flex-col items-start">
+        {
+          characteristic.map((characteristic) => (
+            <div class="flex justify-start mb-16" key={characteristic.id}>
+              <div class="flex gap-6">
+                <Image
+                  class="w-16 h-16"
+                  alt={characteristic.title}
+                  src={characteristic.image}
+                />
+                <div class="flex flex-col">
+                  <h3 class="text-starbucks font-semibold">
+                    {characteristic.title}
+                  </h3>
+                  <p class="text-starbucks font-light text-sm">
+                    {characteristic.information}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Col invisible -->
+      <div class="col-span-1 lg:hidden"></div>
     </div>
   </div>
 </section>
-

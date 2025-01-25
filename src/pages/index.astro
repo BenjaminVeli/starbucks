@@ -1,8 +1,12 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import List from "../components/List.astro";
-import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+
+import CarouselSize from "../components/CarouselSize.jsx";
+
 import "../styles/global.css";
 ---
 
@@ -14,6 +18,7 @@ import "../styles/global.css";
   <Header />
   <Hero />
   <main>
-    <List />
+    <CarouselSize client:load />
   </main>
+  <Footer />
 </Layout>

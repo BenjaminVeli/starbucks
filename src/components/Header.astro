@@ -1,5 +1,6 @@
 ---
 import Search from "../assets/search.svg";
+import { Menu } from "lucide-react";
 
 export interface Props {
   items: { id: number; name: string; ref: string }[];
@@ -15,7 +16,7 @@ const navItems = [
 
 <header class="top-0 left-0 w-full z-50 bg-transparent">
   <div class="container">
-    <div class="flex justify-between lg:relative items-center h-16 lg:h-18">
+    <div class="flex justify-between lg:relative items-center h-16 lg:h-20">
       <a
         href="/"
         title="Go to Starbucks homepage"
@@ -37,7 +38,7 @@ const navItems = [
           {
             navItems.map((navItem) => (
               <li
-                class="text-starbucks font-medium text-base w-full py-2 px-4"
+                class="text-starbucks hover:text-starbucksMoca duration-500 transition-all font-medium text-base w-full py-2 px-4"
                 key={navItem.id}
               >
                 <a href={navItem.ref} class="block w-full">
@@ -54,13 +55,18 @@ const navItems = [
           <div class="relative flex items-center">
             <Search size={16} class="absolute top-2.5 left-2.5" />
             <input
-              class="w-full bg-transparent placeholder:text-starbucks text-starbucks text-sm border border-slate-200 rounded-xl pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-stone-700 hover:border-slate-300 shadow-sm focus:shadow"
+              class="w-full bg-white placeholder:text-starbucks text-starbucks text-sm border border-stone-400 rounded-xl pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-stone-700 hover:border-slate-300 shadow-sm focus:shadow"
               placeholder="Search"
             />
           </div>
         </div>
 
         <img src="/bag.avif" class="w-12 h-12" />
+      </div>
+
+      <!-- Button Menu -->
+      <div class="lg:hidden flex">
+        <Menu className="h-8 w-8"/>
       </div>
     </div>
   </div>
