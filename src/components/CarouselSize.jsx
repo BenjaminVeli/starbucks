@@ -7,13 +7,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import FrappuccinoCaramelRibbon from "../images/1.png";
-import FrappuccinoAlgarrobinaCreme from "../images/2.png";
-import FrappuccinoTripleMocha from "../images/3.png";
-import FrappuccinoMatcha from "../images/4.png";
-import FrappuccinoMolten from "../images/5.png";
-import FrappuccinoVainillaCreme from "../images/6.png";
-import Cacao from "../images/cacao.png";
+import FrappuccinoCaramelRibbon from "../images/1.webp";
+import FrappuccinoAlgarrobinaCreme from "../images/2.webp";
+import FrappuccinoTripleMocha from "../images/3.webp";
+import FrappuccinoMatcha from "../images/4.webp";
+import FrappuccinoMolten from "../images/5.webp";
+import FrappuccinoVainillaCreme from "../images/6.webp";
+import Cacao from "../images/cacao.webp";
 
 const frapuccinoItems = [
   { id: 1, name: "Caramel Ribbon", image: FrappuccinoCaramelRibbon },
